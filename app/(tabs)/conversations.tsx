@@ -13,6 +13,7 @@ import LoadingStateContainer from '../../components/ui/LoadingStateContainer';
 import { useMessagingStyles } from '../../hooks/useMessagingStyles';
 import { Conversation } from '../../types/messaging';
 import { TEXT_STYLES } from '../../theme/fonts';
+import { COLORS } from '../../theme/colors';
 import IconButton from '../../components/ui/IconButton';
 import WelcomeHeader from '../../components/ui/WelcomeHeader';
 
@@ -93,10 +94,10 @@ export default function ConversationsTab() {
           style={{
             marginTop: 160,
             borderRadius: 16,
-            backgroundColor: isDark ? 'rgba(255,255,255,0.08)' : 'rgba(255,255,255,0.20)',
-            borderColor: isDark ? 'rgba(255,255,255,0.2)' : 'rgba(255,255,255,0.4)',
+            backgroundColor: isDark ? colors.glass.default.dark : colors.glass.default.light,
+            borderColor: colors.glass.default.border,
             borderWidth: 1,
-            shadowColor: '#000',
+            shadowColor: COLORS.shadow,
             shadowOffset: { width: 0, height: 2 },
             shadowOpacity: 0.1,
             shadowRadius: 4,
@@ -108,8 +109,8 @@ export default function ConversationsTab() {
           <LinearGradient
             colors={
               isDark
-                ? ['rgba(255,255,255,0.15)', 'rgba(255,255,255,0.05)', 'transparent']
-                : ['rgba(255,255,255,0.4)', 'rgba(255,255,255,0.1)', 'transparent']
+                ? [COLORS.glassGradientPrimary, COLORS.glassGradientSecondary, COLORS.transparent]
+                : [COLORS.glassGradientLightPrimary, COLORS.glassGradientLightSecondary, COLORS.transparent]
             }
             style={{
               position: 'absolute',
@@ -132,7 +133,7 @@ export default function ConversationsTab() {
               right: 2,
               bottom: 2,
               borderRadius: 14,
-              backgroundColor: isDark ? 'rgba(255,255,255,0.03)' : 'rgba(255,255,255,0.06)',
+              backgroundColor: isDark ? COLORS.glassLensEffectDark : COLORS.glassLensEffectLight,
               opacity: 0.3,
             }}
           />
@@ -150,7 +151,7 @@ export default function ConversationsTab() {
               className="mt-6 rounded px-8 py-4"
               style={{ backgroundColor: colors.primary }}
               onPress={onRefresh}>
-              <Text style={{ ...TEXT_STYLES.semibold, color: 'white' }}>Try Again</Text>
+              <Text style={{ ...TEXT_STYLES.semibold, color: COLORS.white }}>Try Again</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -209,7 +210,7 @@ export default function ConversationsTab() {
                 backgroundColor: isDark ? 'rgba(255,255,255,0.08)' : 'rgba(255,255,255,0.20)',
                 borderColor: isDark ? 'rgba(255,255,255,0.2)' : 'rgba(255,255,255,0.4)',
                 borderWidth: 1,
-                shadowColor: '#000',
+                shadowColor: COLORS.shadow,
                 shadowOffset: { width: 0, height: 2 },
                 shadowOpacity: 0.1,
                 shadowRadius: 4,
@@ -221,8 +222,8 @@ export default function ConversationsTab() {
               <LinearGradient
                 colors={
                   isDark
-                    ? ['rgba(255,255,255,0.15)', 'rgba(255,255,255,0.05)', 'transparent']
-                    : ['rgba(255,255,255,0.4)', 'rgba(255,255,255,0.1)', 'transparent']
+                    ? [COLORS.glassGradientPrimary, COLORS.glassGradientSecondary, COLORS.transparent]
+                    : [COLORS.glassGradientLightPrimary, COLORS.glassGradientLightSecondary, COLORS.transparent]
                 }
                 style={{
                   position: 'absolute',
@@ -245,7 +246,7 @@ export default function ConversationsTab() {
                   right: 2,
                   bottom: 2,
                   borderRadius: 14,
-                  backgroundColor: isDark ? 'rgba(255,255,255,0.03)' : 'rgba(255,255,255,0.06)',
+                  backgroundColor: isDark ? COLORS.glassLensEffectDark : COLORS.glassLensEffectLight,
                   opacity: 0.3,
                 }}
               />
@@ -268,7 +269,7 @@ export default function ConversationsTab() {
                   className="mt-6 rounded px-8 py-4"
                   style={{ backgroundColor: colors.primary }}
                   onPress={handleNewConversation}>
-                  <Text style={{ ...TEXT_STYLES.semibold, color: 'white' }}>
+                  <Text style={{ ...TEXT_STYLES.semibold, color: COLORS.white }}>
                     Start Conversation
                   </Text>
                 </TouchableOpacity>

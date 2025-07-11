@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { TEXT_STYLES } from '../../theme/fonts';
+import { COLORS } from '../../theme/colors';
 import LiquidGlassCard from '../ui/LiquidGlassCard';
 import { LeaderboardEntry } from '../../services/leaderboardService';
 
@@ -31,7 +32,7 @@ export default function HighScoresSection({
             <Ionicons name="trophy" size={20} color={colors.primary} />
             <Text
               className="ml-2 font-semibold text-lg"
-              style={{ color: isDark ? 'white' : 'black', ...TEXT_STYLES.semibold }}>
+              style={{ color: isDark ? COLORS.white : COLORS.black, ...TEXT_STYLES.semibold }}>
               High Scores
             </Text>
           </View>
@@ -49,20 +50,20 @@ export default function HighScoresSection({
                   <View className="flex-1">
                     <Text
                       className="font-medium text-base"
-                      style={{ color: isDark ? 'white' : 'black', ...TEXT_STYLES.medium }}>
+                      style={{ color: isDark ? COLORS.white : COLORS.black, ...TEXT_STYLES.medium }}>
                       {entry.leaderboardId}
                     </Text>
                     <Text
                       className="text-sm"
-                      style={{ color: isDark ? 'rgba(255,255,255,0.7)' : 'rgba(0,0,0,0.6)', ...TEXT_STYLES.regular }}>
+                      style={{ color: isDark ? COLORS.textSecondary : COLORS.textTertiaryLight, ...TEXT_STYLES.regular }}>
                       {formatDate(entry.timestamp)}
                     </Text>
                   </View>
                   <View className="flex-row items-center">
-                    <Ionicons name="trophy" size={14} color="#FFD700" />
+                    <Ionicons name="trophy" size={14} color={COLORS.gold} />
                     <Text
                       className="ml-1 font-bold text-base"
-                      style={{ color: isDark ? 'white' : 'black', ...TEXT_STYLES.bold }}>
+                      style={{ color: isDark ? COLORS.white : COLORS.black, ...TEXT_STYLES.bold }}>
                       {entry.score.toLocaleString()}
                     </Text>
                   </View>

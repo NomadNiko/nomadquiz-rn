@@ -9,6 +9,7 @@ import Animated, {
   interpolate,
 } from 'react-native-reanimated';
 import { LinearGradient } from 'expo-linear-gradient';
+import { COLORS } from '../theme/colors';
 
 interface LoadingSpinnerProps {
   size?: number;
@@ -19,8 +20,8 @@ interface LoadingSpinnerProps {
 
 const LoadingSpinner: React.FC<LoadingSpinnerProps> = ({
   size = 100,
-  color = '#ffffff',
-  backgroundColor = 'rgba(0, 0, 0, 0.6)',
+  color = COLORS.white,
+  backgroundColor = COLORS.modalOverlay,
   minDisplayTime = 1500,
 }) => {
   const progress = useSharedValue(0);
@@ -113,7 +114,7 @@ const LoadingSpinner: React.FC<LoadingSpinnerProps> = ({
             cubeAnimatedStyle,
           ]}>
           <LinearGradient
-            colors={['#ef4444', '#3b82f6']}
+            colors={COLORS.light.gradients.destructive}
             style={{
               width: '100%',
               height: '100%',
@@ -129,7 +130,7 @@ const LoadingSpinner: React.FC<LoadingSpinnerProps> = ({
             {
               width: size,
               height: shadowHeight,
-              backgroundColor: '#000',
+              backgroundColor: COLORS.shadow,
               opacity: 0.3,
               position: 'absolute',
               top: shadowTop,

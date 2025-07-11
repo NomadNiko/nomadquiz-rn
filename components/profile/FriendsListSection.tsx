@@ -33,7 +33,7 @@ export default function FriendsListSection({
               <Ionicons name="people" size={20} color={isDark ? COLORS.socialPrimary : COLORS.socialSecondary} />
               <Text
                 className="ml-2 font-semibold text-lg"
-                style={{ color: isDark ? 'white' : 'black', ...TEXT_STYLES.semibold }}>
+                style={{ color: isDark ? COLORS.white : COLORS.black, ...TEXT_STYLES.semibold }}>
                 Friends
               </Text>
             </View>
@@ -62,27 +62,27 @@ export default function FriendsListSection({
                   key={friend.id}
                   onPress={() => onFriendClick(friend)}
                   className="flex-row items-center p-3 rounded-lg"
-                  style={{ backgroundColor: isDark ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.05)' }}
+                  style={{ backgroundColor: isDark ? COLORS.glassGradientPrimary : COLORS.glassGradientLightSecondary }}
                 >
                   <View 
                     className="w-10 h-10 rounded-full items-center justify-center mr-3"
                     style={{ backgroundColor: isDark ? COLORS.socialPrimary : COLORS.socialSecondary }}
                   >
                     <Text
-                      className="font-bold text-white"
-                      style={TEXT_STYLES.bold}>
+                      className="font-bold"
+                      style={{ color: COLORS.white, ...TEXT_STYLES.bold }}>
                       {(friend.firstName?.[0] || '')}{(friend.lastName?.[0] || '')}
                     </Text>
                   </View>
                   <View className="flex-1">
                     <Text
                       className="font-medium text-base"
-                      style={{ color: isDark ? 'white' : 'black', ...TEXT_STYLES.medium }}>
+                      style={{ color: isDark ? COLORS.white : COLORS.black, ...TEXT_STYLES.medium }}>
                       {friend.firstName || ''} {friend.lastName || ''}
                     </Text>
                     <Text
                       className="text-sm"
-                      style={{ color: isDark ? 'rgba(255,255,255,0.7)' : 'rgba(0,0,0,0.6)', ...TEXT_STYLES.regular }}>
+                      style={{ color: isDark ? COLORS.textSecondary : COLORS.textTertiaryLight, ...TEXT_STYLES.regular }}>
                       @{friend.username || 'unknown'}
                     </Text>
                   </View>

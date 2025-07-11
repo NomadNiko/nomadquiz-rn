@@ -16,6 +16,24 @@ const IOS_SYSTEM_COLORS = {
   socialPrimary: '#81C784',
   socialSecondary: '#388E3C',
   socialAccent: '#4CAF50',
+  // Text alpha colors
+  textPrimary: 'rgba(255,255,255,0.8)',
+  textSecondary: 'rgba(255,255,255,0.7)',
+  textTertiary: 'rgba(255,255,255,0.6)',
+  textQuaternary: 'rgba(255,255,255,0.5)',
+  textPrimaryLight: 'rgba(0,0,0,0.8)',
+  textSecondaryLight: 'rgba(0,0,0,0.7)',
+  textTertiaryLight: 'rgba(0,0,0,0.6)',
+  textQuaternaryLight: 'rgba(0,0,0,0.4)',
+  // Modal overlay
+  modalOverlay: 'rgba(0,0,0,0.5)',
+  // Glass gradients
+  glassGradientPrimary: 'rgba(255,255,255,0.15)',
+  glassGradientSecondary: 'rgba(255,255,255,0.05)',
+  glassGradientLightPrimary: 'rgba(255,255,255,0.4)',
+  glassGradientLightSecondary: 'rgba(255,255,255,0.1)',
+  glassLensEffectDark: 'rgba(255,255,255,0.03)',
+  glassLensEffectLight: 'rgba(255,255,255,0.06)',
   light: {
     grey6: 'rgb(242, 242, 247)',
     grey5: 'rgb(230, 230, 235)',
@@ -152,6 +170,24 @@ const ANDROID_COLORS = {
   socialPrimary: '#81C784',
   socialSecondary: '#388E3C',
   socialAccent: '#4CAF50',
+  // Text alpha colors
+  textPrimary: 'rgba(255,255,255,0.8)',
+  textSecondary: 'rgba(255,255,255,0.7)',
+  textTertiary: 'rgba(255,255,255,0.6)',
+  textQuaternary: 'rgba(255,255,255,0.5)',
+  textPrimaryLight: 'rgba(0,0,0,0.8)',
+  textSecondaryLight: 'rgba(0,0,0,0.7)',
+  textTertiaryLight: 'rgba(0,0,0,0.6)',
+  textQuaternaryLight: 'rgba(0,0,0,0.4)',
+  // Modal overlay
+  modalOverlay: 'rgba(0,0,0,0.5)',
+  // Glass gradients
+  glassGradientPrimary: 'rgba(255,255,255,0.15)',
+  glassGradientSecondary: 'rgba(255,255,255,0.05)',
+  glassGradientLightPrimary: 'rgba(255,255,255,0.4)',
+  glassGradientLightSecondary: 'rgba(255,255,255,0.1)',
+  glassLensEffectDark: 'rgba(255,255,255,0.03)',
+  glassLensEffectLight: 'rgba(255,255,255,0.06)',
   light: {
     grey6: 'rgb(249, 249, 255)',
     grey5: 'rgb(215, 217, 228)',

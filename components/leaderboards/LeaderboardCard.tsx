@@ -48,13 +48,13 @@ export default function LeaderboardCard({
           <View className="flex-1">
             <Text 
               className="font-semibold text-base"
-              style={{ color: isDark ? 'white' : 'black', ...TEXT_STYLES.semibold }}
+              style={{ color: isDark ? COLORS.white : COLORS.black, ...TEXT_STYLES.semibold }}
             >
               {leaderboard.leaderboardId}
             </Text>
             <Text 
               className="text-sm"
-              style={{ color: isDark ? 'rgba(255,255,255,0.7)' : 'rgba(0,0,0,0.6)', ...TEXT_STYLES.regular }}
+              style={{ color: isDark ? COLORS.textSecondary : COLORS.textTertiaryLight, ...TEXT_STYLES.regular }}
             >
               {leaderboard.entryCount} participants • Top: {leaderboard.topScore}
             </Text>
@@ -91,7 +91,7 @@ export default function LeaderboardCard({
                   </View>
                   <Text
                     className="font-medium text-sm flex-1"
-                    style={{ color: isDark ? 'rgba(255,255,255,0.9)' : 'rgba(0,0,0,0.8)', ...TEXT_STYLES.medium }}
+                    style={{ color: isDark ? COLORS.textPrimary : COLORS.textPrimaryLight, ...TEXT_STYLES.medium }}
                     numberOfLines={1}
                   >
                     {entry.user?.username || 'Unknown Player'}
@@ -101,7 +101,7 @@ export default function LeaderboardCard({
                   <Ionicons name="trophy" size={12} color={COLORS.gold} />
                   <Text
                     className="ml-1 font-bold text-sm"
-                    style={{ color: isDark ? 'white' : 'black', ...TEXT_STYLES.bold }}
+                    style={{ color: isDark ? COLORS.white : COLORS.black, ...TEXT_STYLES.bold }}
                   >
                     {entry.score.toLocaleString()}
                   </Text>
@@ -113,7 +113,7 @@ export default function LeaderboardCard({
               <View className="items-center pt-1">
                 <Text
                   className="text-xs"
-                  style={{ color: isDark ? 'rgba(255,255,255,0.5)' : 'rgba(0,0,0,0.4)', ...TEXT_STYLES.regular }}
+                  style={{ color: isDark ? COLORS.textQuaternary : COLORS.textQuaternaryLight, ...TEXT_STYLES.regular }}
                 >
                   Tap to see all {leaderboard.entryCount} entries
                 </Text>

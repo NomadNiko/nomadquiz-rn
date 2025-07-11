@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, Alert, ScrollView, TextInput, Image } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
@@ -20,7 +20,7 @@ export default function ProfileEditScreen() {
   const [firstName, setFirstName] = useState(user?.firstName || '');
   const [lastName, setLastName] = useState(user?.lastName || '');
   const [username, setUsername] = useState(user?.username || '');
-  const [email, setEmail] = useState(user?.email || '');
+  const [email] = useState(user?.email || '');
   const [profileImage, setProfileImage] = useState(user?.photo?.path || null);
   const [loading, setLoading] = useState(false);
 
@@ -127,7 +127,7 @@ export default function ProfileEditScreen() {
           >
             <Text
               className="font-semibold"
-              style={{ color: 'white', ...TEXT_STYLES.semibold }}>
+              style={{ color: COLORS.white, ...TEXT_STYLES.semibold }}>
               {loading ? 'Saving...' : 'Save'}
             </Text>
           </TouchableOpacity>
@@ -135,7 +135,7 @@ export default function ProfileEditScreen() {
 
         <ScrollView className="flex-1 px-6" contentContainerStyle={{ paddingBottom: 100 }}>
           {/* Profile Photo Section */}
-          <LiquidGlassCard variant="primary" className="mb-6">
+          <LiquidGlassCard variant="primary" className="mb-6" isDark={isDark}>
             <View className="items-center p-6">
               <TouchableOpacity onPress={showImageOptions}>
                 <View className="relative">
@@ -151,8 +151,8 @@ export default function ProfileEditScreen() {
                       style={{ backgroundColor: colors.primary }}
                     >
                       <Text
-                        className="font-bold text-3xl text-white"
-                        style={TEXT_STYLES.bold}>
+                        className="font-bold text-3xl"
+                        style={{ color: COLORS.white, ...TEXT_STYLES.bold }}>
                         {firstName[0]}{lastName[0]}
                       </Text>
                     </View>
@@ -161,7 +161,7 @@ export default function ProfileEditScreen() {
                     className="absolute -bottom-2 -right-2 w-8 h-8 rounded-full items-center justify-center"
                     style={{ backgroundColor: colors.primary }}
                   >
-                    <Ionicons name="camera" size={16} color="white" />
+                    <Ionicons name="camera" size={16} color={COLORS.white} />
                   </View>
                 </View>
               </TouchableOpacity>
@@ -174,11 +174,11 @@ export default function ProfileEditScreen() {
           </LiquidGlassCard>
 
           {/* Form Fields */}
-          <LiquidGlassCard variant="primary" className="mb-6">
+          <LiquidGlassCard variant="primary" className="mb-6" isDark={isDark}>
             <View className="p-4">
               <Text
                 className="mb-4 font-semibold text-lg"
-                style={{ color: isDark ? 'white' : 'black', ...TEXT_STYLES.semibold }}>
+                style={{ color: colors.foreground, ...TEXT_STYLES.semibold }}>
                 Personal Information
               </Text>
 
@@ -186,7 +186,7 @@ export default function ProfileEditScreen() {
                 <View>
                   <Text
                     className="mb-2 font-medium text-sm"
-                    style={{ color: isDark ? 'rgba(255,255,255,0.8)' : 'rgba(0,0,0,0.7)', ...TEXT_STYLES.medium }}>
+                    style={{ color: isDark ? COLORS.textPrimary : COLORS.textSecondaryLight, ...TEXT_STYLES.medium }}>
                     First Name
                   </Text>
                   <TextInput
@@ -196,9 +196,9 @@ export default function ProfileEditScreen() {
                     placeholderTextColor={colors.grey}
                     className="p-3 rounded-lg border"
                     style={{
-                      color: isDark ? 'white' : 'black',
-                      backgroundColor: isDark ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.05)',
-                      borderColor: isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)',
+                      color: colors.foreground,
+                      backgroundColor: isDark ? colors.glass.default.light : colors.glass.default.dark,
+                      borderColor: isDark ? colors.glass.default.border : colors.glass.default.border,
                       ...TEXT_STYLES.regular
                     }}
                   />
@@ -207,7 +207,7 @@ export default function ProfileEditScreen() {
                 <View>
                   <Text
                     className="mb-2 font-medium text-sm"
-                    style={{ color: isDark ? 'rgba(255,255,255,0.8)' : 'rgba(0,0,0,0.7)', ...TEXT_STYLES.medium }}>
+                    style={{ color: isDark ? COLORS.textPrimary : COLORS.textSecondaryLight, ...TEXT_STYLES.medium }}>
                     Last Name
                   </Text>
                   <TextInput
@@ -217,9 +217,9 @@ export default function ProfileEditScreen() {
                     placeholderTextColor={colors.grey}
                     className="p-3 rounded-lg border"
                     style={{
-                      color: isDark ? 'white' : 'black',
-                      backgroundColor: isDark ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.05)',
-                      borderColor: isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)',
+                      color: colors.foreground,
+                      backgroundColor: isDark ? colors.glass.default.light : colors.glass.default.dark,
+                      borderColor: isDark ? colors.glass.default.border : colors.glass.default.border,
                       ...TEXT_STYLES.regular
                     }}
                   />
@@ -228,7 +228,7 @@ export default function ProfileEditScreen() {
                 <View>
                   <Text
                     className="mb-2 font-medium text-sm"
-                    style={{ color: isDark ? 'rgba(255,255,255,0.8)' : 'rgba(0,0,0,0.7)', ...TEXT_STYLES.medium }}>
+                    style={{ color: isDark ? COLORS.textPrimary : COLORS.textSecondaryLight, ...TEXT_STYLES.medium }}>
                     Username
                   </Text>
                   <TextInput
@@ -239,9 +239,9 @@ export default function ProfileEditScreen() {
                     autoCapitalize="none"
                     className="p-3 rounded-lg border"
                     style={{
-                      color: isDark ? 'white' : 'black',
-                      backgroundColor: isDark ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.05)',
-                      borderColor: isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)',
+                      color: colors.foreground,
+                      backgroundColor: isDark ? colors.glass.default.light : colors.glass.default.dark,
+                      borderColor: isDark ? colors.glass.default.border : colors.glass.default.border,
                       ...TEXT_STYLES.regular
                     }}
                   />
@@ -250,7 +250,7 @@ export default function ProfileEditScreen() {
                 <View>
                   <Text
                     className="mb-2 font-medium text-sm"
-                    style={{ color: isDark ? 'rgba(255,255,255,0.8)' : 'rgba(0,0,0,0.7)', ...TEXT_STYLES.medium }}>
+                    style={{ color: isDark ? COLORS.textPrimary : COLORS.textSecondaryLight, ...TEXT_STYLES.medium }}>
                     Email
                   </Text>
                   <TextInput
@@ -261,8 +261,8 @@ export default function ProfileEditScreen() {
                     className="p-3 rounded-lg border"
                     style={{
                       color: colors.grey,
-                      backgroundColor: isDark ? 'rgba(255,255,255,0.02)' : 'rgba(0,0,0,0.02)',
-                      borderColor: isDark ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.05)',
+                      backgroundColor: isDark ? COLORS.glassLensEffectDark : COLORS.glassLensEffectLight,
+                      borderColor: isDark ? COLORS.glassGradientSecondary : COLORS.glassGradientLightSecondary,
                       ...TEXT_STYLES.regular
                     }}
                   />

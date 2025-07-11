@@ -27,7 +27,7 @@ const ConversationCard: React.FC<ConversationCardProps> = ({
   const isOwnMessage = conversation.lastMessage?.senderId?.id === currentUserId;
   const messagePrefix = isOwnMessage
     ? 'You: '
-    : `${conversation.lastMessage?.senderId.firstName || 'User'}: `;
+    : `${conversation.lastMessage?.senderId?.firstName || 'User'}: `;
   const displayPreview = conversation.lastMessage
     ? `${messagePrefix}${messagePreview}`
     : messagePreview;
@@ -42,10 +42,10 @@ const ConversationCard: React.FC<ConversationCardProps> = ({
           borderRadius: 12,
           paddingHorizontal: 16,
           paddingVertical: 14,
-          backgroundColor: isDark ? 'rgba(30, 58, 138, 0.15)' : 'rgba(30, 58, 138, 0.08)',
-          borderColor: isDark ? 'rgba(30, 58, 138, 0.4)' : 'rgba(30, 58, 138, 0.3)',
+          backgroundColor: colors.glass.primary.light,
+          borderColor: colors.glass.primary.border,
           borderWidth: 1.5,
-          shadowColor: '#000',
+          shadowColor: COLORS.shadow,
           shadowOffset: { width: 0, height: 2 },
           shadowOpacity: 0.1,
           shadowRadius: 4,
@@ -57,8 +57,8 @@ const ConversationCard: React.FC<ConversationCardProps> = ({
         <LinearGradient
           colors={
             isDark
-              ? ['rgba(30, 58, 138, 0.4)', 'rgba(30, 58, 138, 0.15)', 'transparent']
-              : ['rgba(30, 58, 138, 0.3)', 'rgba(30, 58, 138, 0.08)', 'transparent']
+              ? [colors.glass.primary.border, colors.glass.primary.light, 'transparent']
+              : [colors.glass.primary.border, colors.glass.primary.light, 'transparent']
           }
           style={{
             position: 'absolute',
@@ -81,7 +81,7 @@ const ConversationCard: React.FC<ConversationCardProps> = ({
             right: 2,
             bottom: 2,
             borderRadius: 10,
-            backgroundColor: isDark ? 'rgba(30, 58, 138, 0.08)' : 'rgba(30, 58, 138, 0.04)',
+            backgroundColor: colors.glass.primary.dark,
             opacity: 0.3,
           }}
         />
@@ -101,7 +101,7 @@ const ConversationCard: React.FC<ConversationCardProps> = ({
                 style={{
                   width: 14,
                   height: 14,
-                  backgroundColor: '#10B981', // Green for online
+                  backgroundColor: colors.status.online,
                   borderColor: colors.card,
                 }}
               />
@@ -112,20 +112,20 @@ const ConversationCard: React.FC<ConversationCardProps> = ({
               <View className="mb-2 flex-row items-start justify-between">
                 <Text
                   className="flex-1 font-bold text-2xl"
-                  style={{ color: isDark ? 'white' : 'black' }}
+                  style={{ color: colors.foreground }}
                   numberOfLines={2}>
                   {displayName}
                 </Text>
                 <Text
                   className="ml-3 mt-1 font-medium text-xs"
-                  style={{ color: isDark ? 'rgba(255, 255, 255, 0.8)' : 'rgba(0, 0, 0, 0.6)' }}>
+                  style={{ color: isDark ? COLORS.textPrimary : COLORS.textTertiaryLight }}>
                   {timeText}
                 </Text>
               </View>
 
               <Text
                 className="text-sm"
-                style={{ color: isDark ? 'rgba(255, 255, 255, 0.9)' : 'rgba(0, 0, 0, 0.7)' }}
+                style={{ color: isDark ? COLORS.textSecondary : COLORS.textSecondaryLight }}
                 numberOfLines={2}>
                 {displayPreview}
               </Text>

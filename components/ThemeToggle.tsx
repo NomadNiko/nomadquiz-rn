@@ -16,7 +16,7 @@ export default function ThemeToggle({ size = 24 }: ThemeToggleProps) {
       onPress={toggleTheme}
       className="rounded-full p-2"
       style={{
-        backgroundColor: isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)',
+        backgroundColor: isDark ? COLORS.glassGradientPrimary : COLORS.glassGradientLightSecondary,
         marginRight: 4,
       }}>
       <Ionicons

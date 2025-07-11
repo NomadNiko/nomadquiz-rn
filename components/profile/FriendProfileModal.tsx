@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, Modal, TouchableOpacity, ScrollView, Image } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { TEXT_STYLES } from '../../theme/fonts';
+import { COLORS } from '../../theme/colors';
 import { Friend } from '../../services/friendsService';
 import { LeaderboardEntry } from '../../services/leaderboardService';
 
@@ -37,7 +38,7 @@ export default function FriendProfileModal({
       animationType="fade"
       onRequestClose={onClose}
     >
-      <View className="flex-1 justify-center items-center" style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}>
+      <View className="flex-1 justify-center items-center" style={{ backgroundColor: COLORS.modalOverlay }}>
         <View 
           className="m-6 rounded-2xl p-6 max-h-96"
           style={{ backgroundColor: colors.background, width: '90%' }}
@@ -60,8 +61,8 @@ export default function FriendProfileModal({
                         style={{ backgroundColor: colors.primary }}
                       >
                         <Text
-                          className="font-bold text-2xl text-white"
-                          style={TEXT_STYLES.bold}>
+                          className="font-bold text-2xl"
+                          style={{ color: COLORS.white, ...TEXT_STYLES.bold }}>
                           {(selectedFriend?.firstName?.[0] || '') + (selectedFriend?.lastName?.[0] || '')}
                         </Text>
                       </View>
@@ -71,13 +72,13 @@ export default function FriendProfileModal({
                   {/* Friend's Info */}
                   <Text
                     className="font-bold text-xl text-center mb-1"
-                    style={{ color: isDark ? 'white' : 'black', ...TEXT_STYLES.bold }}
+                    style={{ color: isDark ? COLORS.white : COLORS.black, ...TEXT_STYLES.bold }}
                   >
                     {selectedFriend.firstName} {selectedFriend.lastName}
                   </Text>
                   <Text
                     className="text-base text-center"
-                    style={{ color: isDark ? 'rgba(255,255,255,0.7)' : 'rgba(0,0,0,0.6)', ...TEXT_STYLES.regular }}
+                    style={{ color: isDark ? COLORS.textSecondary : COLORS.textTertiaryLight, ...TEXT_STYLES.regular }}
                   >
                     @{selectedFriend.username}
                   </Text>
@@ -94,7 +95,7 @@ export default function FriendProfileModal({
                     <Ionicons name="trophy" size={18} color={colors.primary} />
                     <Text
                       className="ml-2 font-semibold text-base"
-                      style={{ color: isDark ? 'white' : 'black', ...TEXT_STYLES.semibold }}
+                      style={{ color: isDark ? COLORS.white : COLORS.black, ...TEXT_STYLES.semibold }}
                     >
                       High Scores
                     </Text>
@@ -113,22 +114,22 @@ export default function FriendProfileModal({
                           <View className="flex-1">
                             <Text
                               className="font-medium text-sm"
-                              style={{ color: isDark ? 'white' : 'black', ...TEXT_STYLES.medium }}
+                              style={{ color: isDark ? COLORS.white : COLORS.black, ...TEXT_STYLES.medium }}
                             >
                               {entry.leaderboardId}
                             </Text>
                             <Text
                               className="text-xs"
-                              style={{ color: isDark ? 'rgba(255,255,255,0.6)' : 'rgba(0,0,0,0.5)', ...TEXT_STYLES.regular }}
+                              style={{ color: isDark ? COLORS.textTertiary : COLORS.textQuaternaryLight, ...TEXT_STYLES.regular }}
                             >
                               {formatDate(entry.timestamp)}
                             </Text>
                           </View>
                           <View className="flex-row items-center">
-                            <Ionicons name="trophy" size={12} color="#FFD700" />
+                            <Ionicons name="trophy" size={12} color={COLORS.gold} />
                             <Text
                               className="ml-1 font-bold text-sm"
-                              style={{ color: isDark ? 'white' : 'black', ...TEXT_STYLES.bold }}
+                              style={{ color: isDark ? COLORS.white : COLORS.black, ...TEXT_STYLES.bold }}
                             >
                               {entry.score.toLocaleString()}
                             </Text>
@@ -140,7 +141,7 @@ export default function FriendProfileModal({
                     <View className="items-center py-3">
                       <Text
                         className="text-sm text-center"
-                        style={{ color: isDark ? 'rgba(255,255,255,0.6)' : 'rgba(0,0,0,0.5)', ...TEXT_STYLES.regular }}
+                        style={{ color: isDark ? COLORS.textTertiary : COLORS.textQuaternaryLight, ...TEXT_STYLES.regular }}
                       >
                         No scores yet
                       </Text>
@@ -154,7 +155,7 @@ export default function FriendProfileModal({
                     <Ionicons name="people" size={18} color={colors.primary} />
                     <Text
                       className="ml-2 font-semibold text-base"
-                      style={{ color: isDark ? 'white' : 'black', ...TEXT_STYLES.semibold }}
+                      style={{ color: isDark ? COLORS.white : COLORS.black, ...TEXT_STYLES.semibold }}
                     >
                       Friends
                     </Text>
@@ -163,7 +164,7 @@ export default function FriendProfileModal({
                   <View className="items-center py-3">
                     <Text
                       className="text-sm text-center"
-                      style={{ color: isDark ? 'rgba(255,255,255,0.6)' : 'rgba(0,0,0,0.5)', ...TEXT_STYLES.regular }}
+                      style={{ color: isDark ? COLORS.textTertiary : COLORS.textQuaternaryLight, ...TEXT_STYLES.regular }}
                     >
                       Friends list is private
                     </Text>

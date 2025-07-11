@@ -19,12 +19,12 @@ export default function HomeTab() {
         <View className="px-6 pb-4">
           <Text
             className="font-bold text-2xl"
-            style={{ color: isDark ? 'white' : 'black', ...TEXT_STYLES.bold }}>
+            style={{ color: isDark ? COLORS.white : COLORS.black, ...TEXT_STYLES.bold }}>
             Welcome Back
           </Text>
           <Text 
             className="text-sm"
-            style={{ color: isDark ? 'rgba(255,255,255,0.8)' : 'rgba(0,0,0,0.7)', ...TEXT_STYLES.regular }}
+            style={{ color: isDark ? COLORS.textPrimary : COLORS.textSecondaryLight, ...TEXT_STYLES.regular }}
           >
             {user?.firstName ? `Hello ${user.firstName}!` : 'Good to see you!'}
           </Text>
@@ -50,7 +50,7 @@ export default function HomeTab() {
               </Text>
               <Text 
                 className="text-center text-base"
-                style={{ color: isDark ? 'rgba(255,255,255,0.8)' : 'rgba(0,0,0,0.7)', ...TEXT_STYLES.regular }}
+                style={{ color: isDark ? COLORS.textPrimary : COLORS.textSecondaryLight, ...TEXT_STYLES.regular }}
               >
                 Connect with friends, compete on leaderboards, and chat in real-time!
               </Text>
@@ -60,7 +60,7 @@ export default function HomeTab() {
           {/* Quick Actions */}
           <Text 
             className="mb-4 font-semibold text-lg"
-            style={{ color: isDark ? 'white' : 'black', ...TEXT_STYLES.semibold }}
+            style={{ color: isDark ? COLORS.white : COLORS.black, ...TEXT_STYLES.semibold }}
           >
             Quick Actions
           </Text>
@@ -88,7 +88,7 @@ export default function HomeTab() {
                     </Text>
                     <Text 
                       className="text-sm"
-                      style={{ color: isDark ? 'rgba(255,255,255,0.8)' : 'rgba(0,0,0,0.7)', ...TEXT_STYLES.regular }}
+                      style={{ color: isDark ? COLORS.textPrimary : COLORS.textSecondaryLight, ...TEXT_STYLES.regular }}
                     >
                       Chat with friends and groups
                     </Text>
@@ -120,7 +120,7 @@ export default function HomeTab() {
                     </Text>
                     <Text 
                       className="text-sm"
-                      style={{ color: isDark ? 'rgba(255,255,255,0.8)' : 'rgba(0,0,0,0.7)', ...TEXT_STYLES.regular }}
+                      style={{ color: isDark ? COLORS.textPrimary : COLORS.textSecondaryLight, ...TEXT_STYLES.regular }}
                     >
                       View your high scores and rankings
                     </Text>
@@ -152,7 +152,7 @@ export default function HomeTab() {
                     </Text>
                     <Text 
                       className="text-sm"
-                      style={{ color: isDark ? 'rgba(255,255,255,0.8)' : 'rgba(0,0,0,0.7)', ...TEXT_STYLES.regular }}
+                      style={{ color: isDark ? COLORS.textPrimary : COLORS.textSecondaryLight, ...TEXT_STYLES.regular }}
                     >
                       Manage your profile and settings
                     </Text>

@@ -110,14 +110,14 @@ const ConversationHeader: React.FC<ConversationHeaderProps> = ({
                   />
                 </View>
                 <Text style={{ color: colors.foreground }}>
-                  {getUserDisplayName(participant)}
+                  {getUserDisplayName(participant, 'Loading...')}
                 </Text>
               </View>
               <TouchableOpacity
                 onPress={() =>
                   handleRemoveParticipant(
                     participant.id,
-                    getUserDisplayName(participant)
+                    getUserDisplayName(participant, 'User')
                   )
                 }
                 className="p-1"
@@ -133,7 +133,7 @@ const ConversationHeader: React.FC<ConversationHeaderProps> = ({
             onPress={() => setShowAddParticipantModal(true)}
             activeOpacity={0.7}>
             <LinearGradient
-              colors={['#22c55e', '#16a34a']} // Green to dark green gradient
+              colors={colors.gradients.success}
               style={{
                 flexDirection: 'row',
                 alignItems: 'center',
@@ -143,8 +143,8 @@ const ConversationHeader: React.FC<ConversationHeaderProps> = ({
               }}
               start={{ x: 0, y: 0 }}
               end={{ x: 1, y: 0 }}>
-              <Ionicons name="person-add" size={16} color="white" />
-              <Text className="ml-2 font-medium text-white">Add Participant</Text>
+              <Ionicons name="person-add" size={16} color={COLORS.white} />
+              <Text className="ml-2 font-medium" style={{ color: COLORS.white }}>Add Participant</Text>
             </LinearGradient>
           </TouchableOpacity>
 
@@ -154,7 +154,7 @@ const ConversationHeader: React.FC<ConversationHeaderProps> = ({
             onPress={() => setShowEditTitleModal(true)}
             activeOpacity={0.7}>
             <LinearGradient
-              colors={['#3b82f6', '#1d4ed8']} // Blue to dark blue gradient
+              colors={colors.gradients.primary}
               style={{
                 flexDirection: 'row',
                 alignItems: 'center',
@@ -164,8 +164,8 @@ const ConversationHeader: React.FC<ConversationHeaderProps> = ({
               }}
               start={{ x: 0, y: 0 }}
               end={{ x: 1, y: 0 }}>
-              <Ionicons name="pencil" size={16} color="white" />
-              <Text className="ml-2 font-medium text-white">Change Chat Name</Text>
+              <Ionicons name="pencil" size={16} color={COLORS.white} />
+              <Text className="ml-2 font-medium" style={{ color: COLORS.white }}>Change Chat Name</Text>
             </LinearGradient>
           </TouchableOpacity>
         </View>

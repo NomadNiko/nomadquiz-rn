@@ -22,15 +22,15 @@ export const TabBarIcon = (props: {
           {
             backgroundColor: focused
               ? isDark
-                ? 'rgba(255,255,255,0.12)'
-                : 'rgba(255,255,255,0.25)'
+                ? colors.glass.default.light
+                : colors.glass.default.dark
               : isDark
                 ? 'rgba(255,255,255,0.06)'
                 : 'rgba(255,255,255,0.15)',
             borderColor: focused
               ? isDark
-                ? 'rgba(255,255,255,0.4)'
-                : 'rgba(255,255,255,0.6)'
+                ? colors.glass.default.border
+                : colors.glass.default.border
               : isDark
                 ? 'rgba(255,255,255,0.2)'
                 : 'rgba(255,255,255,0.3)',
@@ -42,11 +42,11 @@ export const TabBarIcon = (props: {
           colors={
             focused
               ? isDark
-                ? ['rgba(255,255,255,0.4)', 'rgba(255,255,255,0.1)', 'transparent']
-                : ['rgba(255,255,255,0.6)', 'rgba(255,255,255,0.2)', 'transparent']
+                ? [COLORS.glassGradientLightPrimary, COLORS.glassGradientLightSecondary, COLORS.transparent]
+                : [COLORS.glassGradientLightPrimary, COLORS.glassGradientLightSecondary, COLORS.transparent]
               : isDark
-                ? ['rgba(255,255,255,0.2)', 'rgba(255,255,255,0.05)', 'transparent']
-                : ['rgba(255,255,255,0.4)', 'rgba(255,255,255,0.1)', 'transparent']
+                ? [COLORS.glassGradientPrimary, COLORS.glassGradientSecondary, COLORS.transparent]
+                : [COLORS.glassGradientPrimary, COLORS.glassGradientSecondary, COLORS.transparent]
           }
           style={styles.glossOverlay}
           start={{ x: 0, y: 0 }}
@@ -60,9 +60,9 @@ export const TabBarIcon = (props: {
             {
               backgroundColor: focused
                 ? isDark
-                  ? 'rgba(255,255,255,0.05)'
-                  : 'rgba(255,255,255,0.1)'
-                : 'transparent',
+                  ? COLORS.glassLensEffectDark
+                  : COLORS.glassLensEffectLight
+                : COLORS.transparent,
             },
           ]}
         />
@@ -93,7 +93,7 @@ export const styles = StyleSheet.create({
     position: 'relative',
     overflow: 'hidden',
     // Shadow for depth
-    shadowColor: '#000',
+    shadowColor: COLORS.shadow,
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 4,

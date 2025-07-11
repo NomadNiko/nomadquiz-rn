@@ -38,12 +38,6 @@ export default function ConversationScreen({ conversationId, onBack }: Conversat
   const conversationMessages = messages[conversationId] || [];
   const processedMessages = useMessageList(conversationMessages, user?.id);
 
-  useEffect(() => {
-    if (conversationId && currentConversation) {
-      loadConversationMessages();
-    }
-  }, [conversationId, currentConversation, loadConversationMessages]);
-
   const loadConversationMessages = useCallback(async () => {
     try {
       setIsLoading(true);
@@ -55,6 +49,12 @@ export default function ConversationScreen({ conversationId, onBack }: Conversat
       setIsLoading(false);
     }
   }, [conversationId, loadMessages]);
+
+  useEffect(() => {
+    if (conversationId && currentConversation) {
+      loadConversationMessages();
+    }
+  }, [conversationId, currentConversation, loadConversationMessages]);
 
   const handleSendMessage = async () => {
     if (!messageText.trim() || sendingMessage) return;

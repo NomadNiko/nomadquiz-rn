@@ -34,13 +34,13 @@ const GradientButton: React.FC<GradientButtonProps> = ({
   const getGradientColors = () => {
     switch (variant) {
       case 'success':
-        return ['#10b981', '#059669'];
+        return colors.gradients.success;
       case 'info':
-        return ['#0ea5e9', '#0284c7'];
+        return colors.gradients.info;
       case 'destructive':
-        return ['#ef4444', '#dc2626'];
+        return colors.gradients.destructive;
       default:
-        return ['#2563eb', '#06b6d4'];
+        return colors.gradients.primary;
     }
   };
 
@@ -83,14 +83,14 @@ const GradientButton: React.FC<GradientButtonProps> = ({
         start={{ x: 0, y: 0 }}
         end={{ x: 1, y: 0 }}>
         {isLoading ? (
-          <LoadingSpinner size={20} color="white" />
+          <LoadingSpinner size={20} color={COLORS.white} />
         ) : (
           <View style={{ flexDirection: 'row', alignItems: 'center' }}>
             {leftIcon && (
               <Ionicons
                 name={leftIcon}
                 size={sizeConfig.fontSize}
-                color="white"
+                color={COLORS.white}
                 style={{ marginRight: 8 }}
               />
             )}
@@ -98,7 +98,7 @@ const GradientButton: React.FC<GradientButtonProps> = ({
               style={{
                 fontSize: sizeConfig.fontSize,
                 fontWeight: '600',
-                color: 'white',
+                color: COLORS.white,
                 ...TEXT_STYLES.semibold,
               }}>
               {title}
