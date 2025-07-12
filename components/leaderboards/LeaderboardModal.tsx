@@ -174,10 +174,7 @@ export default function LeaderboardModal({
                           className="font-semibold text-lg mt-4"
                           style={{ color: colors.foreground, ...TEXT_STYLES.semibold }}
                         >
-                          {selectedUser?.user?.firstName && selectedUser?.user?.lastName 
-                            ? `${selectedUser.user.firstName} ${selectedUser.user.lastName}`
-                            : selectedUser?.user?.username || 'Unknown User'
-                          }
+                          {selectedUser?.user?.username || 'Unknown User'}
                         </Text>
                         <Text
                           className="text-sm"
@@ -292,9 +289,7 @@ export default function LeaderboardModal({
                               key={entry.id || index} 
                               className="flex-row items-center py-4 px-2 rounded-lg"
                               style={{ 
-                                backgroundColor: isCurrentUser 
-                                  ? colors.primary + '20'
-                                  : index < 3 ? COLORS.gold + '26' : COLORS.transparent,
+                                backgroundColor: index < 3 ? COLORS.gold + '26' : COLORS.transparent,
                                 borderBottomWidth: index < leaderboardEntries.length - 1 ? 1 : 0,
                                 borderBottomColor: colors.grey + '20'
                               }}
@@ -342,7 +337,10 @@ export default function LeaderboardModal({
                               
                               {/* Score */}
                               <View className="flex-row items-center">
-                                <Ionicons name="trophy" size={16} color={COLORS.gold} />
+                                {isCurrentUser && (
+                                  <Ionicons name="person" size={16} color={colors.primary} />
+                                )}
+                                <Ionicons name="trophy" size={16} color={COLORS.gold} style={isCurrentUser ? { marginLeft: 8 } : {}} />
                                 <Text
                                   className={isCurrentUser ? "ml-2 font-bold text-xl" : "ml-2 font-bold text-lg"}
                                   style={{ color: colors.foreground, ...TEXT_STYLES.bold }}

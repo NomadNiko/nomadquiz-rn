@@ -32,7 +32,16 @@ class LeaderboardService {
       });
 
       if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+        // Log the actual error response for debugging
+        let errorMessage = `HTTP error! status: ${response.status}`;
+        try {
+          const errorBody = await response.text();
+          console.error('API Error Response:', errorBody);
+          errorMessage += ` - ${errorBody}`;
+        } catch (e) {
+          // Ignore if can't read response body
+        }
+        throw new Error(errorMessage);
       }
 
       return await response.json();
@@ -92,16 +101,32 @@ class LeaderboardService {
     return response || [];
   }
 
-  async submitScore(authToken: string, leaderboardId: string, score: number): Promise<void> {
+  async submitScore(authToken: string, leaderboardId: string, score: number, username: string): Promise<void> {
+    const requestData = {
+      leaderboardId,
+      username,
+      score,
+    };
+    
+    console.log('Leaderboard service submitting to /leaderboards/submit:', requestData);
+    console.log('Request validation check:', {
+      leaderboardIdLength: leaderboardId.length,
+      usernameLength: username.length,
+      scoreType: typeof score,
+      scoreValue: score
+    });
+    
+    console.log('Making request to:', `${this.baseUrl}/leaderboards/submit`);
+    console.log('With headers Authorization:', `Bearer ${authToken.substring(0, 20)}...`);
+    console.log('With body:', JSON.stringify(requestData));
+    
     await this.makeRequest('/leaderboards/submit', {
       method: 'POST',
       headers: {
+        'Content-Type': 'application/json',
         Authorization: `Bearer ${authToken}`,
       },
-      body: JSON.stringify({
-        leaderboardId,
-        score,
-      }),
+      body: JSON.stringify(requestData),
     });
   }
 

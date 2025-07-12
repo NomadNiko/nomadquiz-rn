@@ -6,8 +6,8 @@ import { COLORS } from '../../theme/colors';
 
 interface LiquidGlassCardProps {
   children: React.ReactNode;
-  variant?: 'default' | 'destructive' | 'success' | 'primary';
-  isDark: boolean;
+  variant?: 'default' | 'destructive' | 'success' | 'primary' | 'secondary' | 'accent';
+  isDark?: boolean;
   style?: ViewStyle;
   className?: string;
 }
@@ -51,6 +51,24 @@ const LiquidGlassCard: React.FC<LiquidGlassCardProps> = ({
             ? ['rgba(30, 58, 138, 0.4)', 'rgba(30, 58, 138, 0.15)', 'transparent']
             : ['rgba(30, 58, 138, 0.3)', 'rgba(30, 58, 138, 0.08)', 'transparent'],
           lens: isDark ? 'rgba(30, 58, 138, 0.08)' : 'rgba(30, 58, 138, 0.04)',
+        };
+      case 'secondary':
+        return {
+          background: isDark ? 'rgba(147, 51, 234, 0.15)' : 'rgba(147, 51, 234, 0.08)',
+          border: isDark ? 'rgba(147, 51, 234, 0.4)' : 'rgba(147, 51, 234, 0.3)',
+          gradient: isDark
+            ? ['rgba(147, 51, 234, 0.4)', 'rgba(147, 51, 234, 0.15)', 'transparent']
+            : ['rgba(147, 51, 234, 0.3)', 'rgba(147, 51, 234, 0.08)', 'transparent'],
+          lens: isDark ? 'rgba(147, 51, 234, 0.08)' : 'rgba(147, 51, 234, 0.04)',
+        };
+      case 'accent':
+        return {
+          background: isDark ? 'rgba(251, 146, 60, 0.15)' : 'rgba(251, 146, 60, 0.08)',
+          border: isDark ? 'rgba(251, 146, 60, 0.4)' : 'rgba(251, 146, 60, 0.3)',
+          gradient: isDark
+            ? ['rgba(251, 146, 60, 0.4)', 'rgba(251, 146, 60, 0.15)', 'transparent']
+            : ['rgba(251, 146, 60, 0.3)', 'rgba(251, 146, 60, 0.08)', 'transparent'],
+          lens: isDark ? 'rgba(251, 146, 60, 0.08)' : 'rgba(251, 146, 60, 0.04)',
         };
       default:
         return {

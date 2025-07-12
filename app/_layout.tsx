@@ -52,6 +52,8 @@ function AppContent() {
       <ConversationsProvider>
         <Stack>
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          <Stack.Screen name="quiz-game" options={{ headerShown: false }} />
+          <Stack.Screen name="quiz-results" options={{ headerShown: false }} />
           <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
         </Stack>
       </ConversationsProvider>

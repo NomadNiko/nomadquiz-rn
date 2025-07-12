@@ -67,30 +67,30 @@ export default function HomeTab() {
 
           <View className="space-y-1">
             <LiquidGlassCard variant="secondary" className="mb-1">
-              <TouchableOpacity className="p-4" onPress={() => router.push('/conversations')}>
+              <TouchableOpacity className="p-4" onPress={() => router.push('/quiz')}>
                 <View className="flex-row items-center">
                   <View 
                     className="mr-3 items-center justify-center rounded-full"
                     style={{
                       width: 40,
                       height: 40,
-                      backgroundColor: isDark ? COLORS.messagingPrimary + '33' : COLORS.messagingSecondary + '33'
+                      backgroundColor: COLORS.primary + '33'
                     }}
                   >
-                    <Ionicons name="chatbubbles" size={20} color={isDark ? COLORS.messagingPrimary : COLORS.messagingSecondary} />
+                    <Ionicons name="school" size={20} color={COLORS.primary} />
                   </View>
                   <View className="flex-1">
                     <Text 
                       className="font-semibold"
                       style={{ color: colors.foreground, ...TEXT_STYLES.semibold }}
                     >
-                      Messages
+                      Quiz Challenge
                     </Text>
                     <Text 
                       className="text-sm"
                       style={{ color: isDark ? COLORS.textPrimary : COLORS.textSecondaryLight, ...TEXT_STYLES.regular }}
                     >
-                      Chat with friends and groups
+                      Test your knowledge across categories
                     </Text>
                   </View>
                   <Ionicons name="chevron-forward" size={20} color={colors.grey2} />
@@ -123,6 +123,38 @@ export default function HomeTab() {
                       style={{ color: isDark ? COLORS.textPrimary : COLORS.textSecondaryLight, ...TEXT_STYLES.regular }}
                     >
                       View your high scores and rankings
+                    </Text>
+                  </View>
+                  <Ionicons name="chevron-forward" size={20} color={colors.grey2} />
+                </View>
+              </TouchableOpacity>
+            </LiquidGlassCard>
+
+            <LiquidGlassCard variant="secondary" className="mb-1">
+              <TouchableOpacity className="p-4" onPress={() => router.push('/conversations')}>
+                <View className="flex-row items-center">
+                  <View 
+                    className="mr-3 items-center justify-center rounded-full"
+                    style={{
+                      width: 40,
+                      height: 40,
+                      backgroundColor: isDark ? COLORS.messagingPrimary + '33' : COLORS.messagingSecondary + '33'
+                    }}
+                  >
+                    <Ionicons name="chatbubbles" size={20} color={isDark ? COLORS.messagingPrimary : COLORS.messagingSecondary} />
+                  </View>
+                  <View className="flex-1">
+                    <Text 
+                      className="font-semibold"
+                      style={{ color: colors.foreground, ...TEXT_STYLES.semibold }}
+                    >
+                      Messages
+                    </Text>
+                    <Text 
+                      className="text-sm"
+                      style={{ color: isDark ? COLORS.textPrimary : COLORS.textSecondaryLight, ...TEXT_STYLES.regular }}
+                    >
+                      Chat with friends and groups
                     </Text>
                   </View>
                   <Ionicons name="chevron-forward" size={20} color={colors.grey2} />
